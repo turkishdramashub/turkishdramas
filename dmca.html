@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DMCA Policy | Turkish Dramas Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===================== Custom Variables ===================== */
+        :root {
+            --primary-color: #00bcd4; /* Cyan/Blue for highlights */
+            --secondary-text: #bdbdbd; /* Light grey for body text */
+            --background-color-dark: #121212;
+            --box-bg: rgba(255,255,255,0.05);
+            --dmca-highlight: #00ffb4; /* Greenish glow for DMCA */
+        }
+
+        /* 1. MAIN BACKGROUND ANIMATION (From previous answer) */
+        body {
+            background-color: var(--background-color-dark);
+            background-image: linear-gradient(135deg, #121212, #1a1a1a, #0d0d0d);
+            background-size: 300% 300%;
+            animation: backgroundPan 15s ease infinite;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        @keyframes backgroundPan {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ================= HEADER - Simplified ================= */
+        header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+        
+        .logo-container { display: flex; align-items: center; }
+        
+        /* Using the new logo for the header */
+        .logo {
+            height: 40px;
+            margin-right: 10px;
+            filter: drop-shadow(0 0 5px var(--primary-color));
+        }
+        
+        .brand-name {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        /* Hiding Search elements */
+        .search-trigger, .search-overlay {
+            display: none !important;
+        }
+
+
+        /* ===================== 2. DMCA LOGO ANIMATION (Badge replaced by your logo) ===================== */
+        .dmca-badge {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: contain;
+
+            /* Pulse/Glow Animation (Adapted for DMCA Greenish Glow) */
+            animation: dmcaPulse 2.5s infinite ease-in-out;
+            filter: drop-shadow(0 0 14px rgba(0,255,180,0.8));
+        }
+
+        @keyframes dmcaPulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        /* ===================== DMCA BOX STYLING ===================== */
+        .dmca-box {
+            max-width: 800px;
+            margin: 100px auto 40px;
+            background: var(--box-bg);
+            padding: 25px 35px;
+            border-radius: 18px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+            border: 1px solid rgba(255,255,255,0.15);
+            box-sizing: border-box;
+        }
+
+        .dmca-box h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--dmca-highlight); /* Greenish highlight for DMCA */
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(0,255,180,0.6);
+        }
+
+        .dmca-box p, .dmca-box ul {
+            color: var(--secondary-text);
+            margin-bottom: 15px;
+            font-size: 1.0rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .dmca-box strong {
+            color: #fff;
+        }
+        
+        /* List Styling */
+        .dmca-box ul {
+            margin-left: 20px;
+            list-style: disc;
+            color: #fff;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+        
+        /* 3. EMAIL BUTTON STYLE (Animated) */
+        .dmca-contact-button {
+            display: block;
+            width: fit-content;
+            margin: 25px auto 30px auto;
+            padding: 12px 25px;
+            background-color: var(--dmca-highlight);
+            color: #111;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,255,180,0.5);
+            border: none;
+            text-transform: uppercase;
+        }
+
+        .dmca-contact-button:hover {
+            background-color: #33ffc2;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,255,180,0.8);
+        }
+
+        .dmca-contact-button i {
+            margin-right: 8px;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--secondary-text);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .dmca-box {
+                margin: 80px 10px 30px;
+                padding: 15px;
+            }
+            .dmca-badge {
+                width: 100px;
+                height: 100px;
+            }
+            .dmca-contact-button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/d1QbwxSM/Picsart-25-11-13-03-11-26-268.png" class="logo">
+            <span class="brand-name">Turkish Dramas Hub</span>
+        </div>
+        </header>
+
+
+    <section class="dmca-box">
+
+        <img src="https://i.postimg.cc/d1QbwxSM/Picsart-25-11-13-03-11-26-268.png" class="dmca-badge">
+
+        <h2>DMCA Copyright Disclaimer</h2>
+
+        <p>
+            This website does not host any video content on its servers. All Turkish drama episodes, movies, and streams 
+            displayed on this platform are sourced from publicly available third-party websites.
+        </p>
+
+        <p>
+            We do not upload, store, or distribute any copyrighted material. Our website simply provides publicly accessible 
+            embeds and links already available on the internet.
+        </p>
+
+        <p>
+            If you are the copyright owner and believe your content is being used improperly, you may request immediate 
+            removal. Please provide the following details in your notice:
+        </p>
+
+        <ul>
+            <li>Direct link (URL) to the allegedly infringing content on this site.</li>
+            <li>Identification of the copyrighted work claimed to have been infringed.</li>
+            <li>Proof of ownership or authorization to act on behalf of the owner.</li>
+            <li>Your physical or electronic signature (a valid contact email is sufficient).</li>
+        </ul>
+
+        <p>
+            Send all official DMCA takedown notices to our designated agent using the button below. We treat all infringement 
+            claims with urgency and are committed to timely removal.
+        </p>
+
+        <a href="mailto:epicdramasgrammar@gmail.com" class="dmca-contact-button">
+            <i class="fas fa-paper-plane"></i> Submit Notice
+        </a>
+
+        <p style="text-align: center; color: var(--dmca-highlight); font-weight: bold;">
+            We will respond within 24–48 hours and remove any infringing content immediately upon validation.
+        </p>
+
+    </section>
+
+
+
+
+
+    <footer>
+        <p>© 2025 Turkish Dramas Hub – All Rights Reserved</p>
+    </footer>
+
+
+    </body>
+</html>

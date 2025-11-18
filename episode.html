@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Episode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .download-btn {
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            background: red;
+            color: #fff;
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .disclaimer-box {
+            margin-top: 30px;
+            background: #111;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* ============================  
+           ONLY SUBTITLE AREA BLUR  
+           (BOTTOM 70px OF VIDEO FRAME)
+        ============================ */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 230px;
+        }
+
+        .subtitle-blur {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px; /* only subtitle area */
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 0 0 8px 8px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+    <img src="https://i.postimg.cc/d1QbwxSM/Picsart-25-11-13-03-11-26-268.png" class="logo">
+    <span class="brand-name">Turkish Dramas Hub</span>
+</div>
+
+
+    <button class="search-trigger">
+        <i class="fas fa-search"></i> <span>Search</span>
+    </button>
+</header>
+
+<section class="section" style="margin-top:130px;">
+
+    <!-- LOADING UI -->
+    <div id="episodeSkeleton">
+        <div class="skeleton-card" style="width:100%; height:230px;"></div>
+        <br>
+        <div class="skeleton-card" style="width:70%; height:25px;"></div>
+        <br>
+        <div class="skeleton-card" style="width:40%; height:20px;"></div>
+    </div>
+
+    <!-- EPISODE CONTENT -->
+    <div id="episodeContent" style="display:none;">
+
+        <!-- PLAYER -->
+        <div class="video-wrapper">
+            <iframe id="videoPlayer" width="100%" height="230"
+                    style="border:none; border-radius:8px;" allowfullscreen></iframe>
+
+            <!-- ONLY SUBTITLES BLUR AREA -->
+            <div id="subtitleBlur" class="subtitle-blur">
+                Subtitles will unlock in <span id="countdown">90</span> sec
+            </div>
+        </div>
+
+        <h2 id="epTitle" style="margin-top:20px;"></h2>
+
+        <p id="epDescription" style="color:#b3b3b3; margin-top:8px;"></p>
+        <p id="epDate" style="color:#777; margin-top:5px;"></p>
+
+        <!-- DOWNLOAD BUTTON -->
+        <a id="downloadBtn" class="download-btn" target="_blank">
+            <i class="fa-solid fa-download"></i> Download Episode
+        </a>
+
+        <!-- DISCLAIMER -->
+        <div class="disclaimer-box">
+            <b>Disclaimer:</b>
+            All videos on this website are embedded from third-party sources.
+            We do not host or upload any copyrighted content.
+            If you want any content removed, please contact us.
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2025 Turkish Dramas Hub – All Rights Reserved</p>
+</footer>
+
+<script>
+async function loadEpisode() {
+
+    const url = new URLSearchParams(window.location.search);
+    const slug = url.get("ep");
+
+    if (!slug) {
+        document.getElementById("episodeSkeleton").innerHTML =
+            "<p style='color:red'>Episode not found</p>";
+        return;
+    }
+
+    const file = `./data/episodes/${slug}.json`;
+
+    try {
+        const res = await fetch(file);
+        const data = await res.json();
+
+        document.getElementById("episodeSkeleton").style.display = "none";
+        document.getElementById("episodeContent").style.display = "block";
+
+        document.getElementById("epTitle").innerText = data.title;
+        document.getElementById("epDescription").innerText = data.description;
+        document.getElementById("epDate").innerText = "Published: " + (data.date || "N/A");
+
+        document.getElementById("videoPlayer").src = data.stream;
+        document.getElementById("downloadBtn").href = data.download;
+
+        startCountdown();
+
+    } catch (err) {
+        console.error("EPISODE LOAD ERROR", err);
+        document.getElementById("episodeSkeleton").innerHTML =
+            "<p style='color:red'>Failed to load episode</p>";
+    }
+}
+
+function startCountdown() {
+    let time = 90;
+    const blurBox = document.getElementById("subtitleBlur");
+    const countdownEl = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+        time--;
+        countdownEl.innerText = time;
+
+        if (time <= 0) {
+            blurBox.style.display = "none";  
+            clearInterval(timer);
+        }
+    }, 1000);
+}
+
+loadEpisode();
+</script>
+
+</body>
+</html>

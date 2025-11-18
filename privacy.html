@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy | Turkish Dramas Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===================== Custom Variables ===================== */
+        :root {
+            --primary-color: #00bcd4; /* Cyan/Blue for highlights */
+            --secondary-text: #bdbdbd; /* Light grey for body text */
+            --background-color-dark: #121212;
+            --box-bg: rgba(255,255,255,0.05);
+        }
+
+        /* ===================== 1. MAIN BACKGROUND ANIMATION ===================== */
+        body {
+            /* Fallback color */
+            background-color: var(--background-color-dark); 
+            /* Animated Gradient */
+            background-image: linear-gradient(135deg, #121212, #1a1a1a, #0d0d0d);
+            background-size: 300% 300%;
+            animation: backgroundPan 15s ease infinite;
+
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        @keyframes backgroundPan {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ================= HEADER - Simplified ================= */
+        header {
+            display: flex;
+            justify-content: flex-start; /* Logo stays to the left */
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+        
+        .logo-container { display: flex; align-items: center; }
+        
+        .logo {
+            height: 40px;
+            margin-right: 10px;
+            filter: drop-shadow(0 0 5px var(--primary-color));
+        }
+        
+        .brand-name {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+
+        /* ===================== MIDDLE LOGO & Animated Style ===================== */
+        .middle-logo-icon {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: contain;
+
+            /* Pulse/Glow Animation */
+            animation: logoPulse 3s infinite ease-in-out;
+            filter: drop-shadow(0 0 12px rgba(0,220,255,0.8)); /* Stronger glow */
+        }
+
+        @keyframes logoPulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+
+        /* ===================== PRIVACY BOX STYLING ===================== */
+        .privacy-box {
+            max-width: 850px;
+            margin: 100px auto 40px;
+            background: var(--box-bg); 
+            padding: 25px;
+            border-radius: 18px;
+            backdrop-filter: blur(8px); 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.7); 
+            border: 1px solid rgba(255,255,255,0.15); 
+            box-sizing: border-box;
+        }
+
+        .privacy-box h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            /* Text Glow Effect */
+            text-shadow: 0 0 10px rgba(0,180,255,0.6); 
+        }
+
+        .privacy-box p, .privacy-box ul {
+            color: var(--secondary-text);
+            margin-bottom: 15px;
+            font-size: 1.0rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .privacy-box h3 {
+            color:#fff; 
+            margin-top:25px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            display: inline-block;
+            font-size: 1.2rem;
+            /* Text Glow Effect for Subheadings */
+            text-shadow: 0 0 5px rgba(255,255,255,0.2); 
+        }
+
+        /* ===================== 2. EMAIL BUTTON STYLE (Animated) ===================== */
+        .contact-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 30px auto;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,180,255,0.5);
+            border: none;
+        }
+
+        .contact-button:hover {
+            background-color: #34dbeb; /* Lighter color on hover */
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,220,255,0.8);
+        }
+
+        .contact-button i {
+            margin-right: 8px;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .privacy-box {
+                margin: 80px 10px 30px;
+                padding: 15px;
+            }
+            .middle-logo-icon {
+                width: 100px;
+                height: 100px;
+            }
+            .contact-button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/d1QbwxSM/Picsart-25-11-13-03-11-26-268.png" class="logo">
+            <span class="brand-name">Turkish Dramas Hub</span>
+        </div>
+    </header>
+
+
+
+    <section class="privacy-box">
+
+        <img src="https://i.postimg.cc/d1QbwxSM/Picsart-25-11-13-03-11-26-268.png" class="middle-logo-icon">
+
+        <h2>Privacy Policy</h2>
+
+        <p>
+            Your privacy is extremely important to us. This Privacy Policy outlines how we handle 
+            information when you visit or use the <strong>Turkish Dramas Hub</strong> website.
+        </p>
+
+        <h3 style="color:#fff; margin-top:20px;">1. No Personal Data Collection</h3>
+        <p>
+            We do not collect, store, or share any personal information. The website does not require 
+            users to create an account, log in, or submit details.
+        </p>
+
+        <h3 style="color:#fff;">2. Third-Party Streaming</h3>
+        <p>
+            All videos on this website are from publicly available third-party streaming servers.  
+            These external sites may use cookies or trackers based on their own privacy policies.
+        </p>
+
+        <h3 style="color:#fff;">3. Cookies</h3>
+        <p>
+            This website does not use cookies directly. However, third-party embedded video players 
+            may collect anonymous data using their own cookie systems.
+        </p>
+
+        <h3 style="color:#fff;">4. External Links</h3>
+        <p>
+            Our platform contains external links. We are not responsible for the privacy practices 
+            of those websites.
+        </p>
+
+        <h3 style="color:#fff;">5. Copyright & Removal</h3>
+        <p>
+            If you are a copyright owner and want your content removed, please contact us directly 
+            using the button below:
+        </p>
+        
+        <a href="mailto:epicdramasgrammar@gmail.com" class="contact-button">
+            <i class="fas fa-envelope"></i> Contact for Content Removal
+        </a>
+
+        <h3 style="color:#fff;">6. Changes to this Policy</h3>
+        <p>
+            We may update this Privacy Policy at any time. All changes will appear on this page with 
+            updated revision dates.
+        </p>
+    </section>
+
+
+
+
+    <footer>
+        <p>© 2025 Turkish Dramas Hub – All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
