@@ -12,7 +12,7 @@ const topRatedSlider = document.getElementById("top-rated-slider");
 const addedSlider = document.getElementById("added-slider");
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("🔥 GitHub JSON Loading Active");
+    console.log("🔥 Loading JSON Data…");
     setupSliders();
     initSearch();
     showSkeleton(trendingSlider);
@@ -38,12 +38,13 @@ async function loadAll() {
         addedToWebsite   = await loadFolder(FOLDERS.added);
         allEpisodes      = await loadFolder(FOLDERS.episodes);
 
+        // HOME CARDS → DRAMA DETAILS
         populate(trendingSlider, trendingEpisodes);
         populate(newReleasesSlider, newReleases);
         populate(topRatedSlider, topRated);
         populate(addedSlider, addedToWebsite);
-    }
-    catch (err) {
+
+    } catch (err) {
         console.error("❌ Load Failed:", err);
         showError(trendingSlider);
         showError(newReleasesSlider);
@@ -82,8 +83,12 @@ function populate(slider, data) {
             </div>
         `;
 
-        // ❌ CLICK REMOVE — NOW NON-CLICKABLE
-        div.style.pointerEvents = "none";
+        // 🎯 CARD CLICK → DRAMA DETAILS PAGE
+        div.addEventListener("click", () => {
+            if (item.slug) {
+                window.location.href = `dramas.html?id=${item.slug}`;
+            }
+        });
 
         slider.appendChild(div);
     });
@@ -95,6 +100,9 @@ function setupSliders() {
         slider.style.scrollBehavior = "smooth";
     });
 }
+
+
+// ======================= SEARCH ======================= //
 
 let searchOverlay, searchClose, searchTrigger, searchInputMain,
     searchResultsMain, searchResultGrid, resultCount;
@@ -122,6 +130,7 @@ function initSearch() {
         document.body.style.overflow = "auto";
     });
 
+    // SEARCH → ONLY EPISODES (just like before)
     searchInputMain.addEventListener("input", () => {
         const q = searchInputMain.value.toLowerCase().trim();
         if (!q) {
@@ -165,6 +174,7 @@ function showSearch(results) {
             </div>
         `;
 
+        // SEARCH → EPISODE PAGE
         div.addEventListener("click", () => {
             if (item.slug) window.location.href = `episode.html?ep=${item.slug}`;
         });
